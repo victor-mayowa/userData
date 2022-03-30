@@ -15,6 +15,7 @@ const ContactList = (props) => {
         onClickHandler={deleteClickHandler}
         key={contact.id}
       />
+      
     );
   });
 
@@ -23,8 +24,8 @@ const ContactList = (props) => {
       <h2>
         Contact List
         <Link to="./add">
-        <button className="ui button blue right">Add Contact</button></Link>
-      
+          <button className="ui button blue right">Add Contact</button>
+        </Link>
       </h2>
       {renderedContactList}
     </div>
