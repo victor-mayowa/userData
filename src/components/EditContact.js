@@ -4,23 +4,20 @@ import api from "../api/data";
 // import { Link } from "react-router-dom";
 
 const EditContact = (props) => {
-
-  const locate = useLocation()
-  console.log(locate)
+  const locate = useLocation();
+  // console.log(locate);
 
   // const {name, title, data} = locate.state.data
   // console.log(locate.state.data)
 
   const [name, setName] = useState(locate.state.data.name);
   const [title, setTitle] = useState(locate.state.data.title);
-  
+
   const [location, setLocation] = useState(locate.state.data.location);
 
   const navigate = useNavigate();
- 
 
-
-  const EditData = (e) => {
+  const EditData = async (e) => {
     e.preventDefault();
     if (name === "" || title === "" || location === "") {
       alert("fill all the inputs");
@@ -31,20 +28,36 @@ const EditContact = (props) => {
       title,
       location,
     };
-
-    console.log(contact)
-
-    const editContactHandler = async (contact) => {
-      console.log(contact)
-      const response = await api.put(`/user/${contact.id}`, contact);
-      console.log(response);
-    };
-    // // 
-    editContactHandler(contact)
-
-    // props.editContactHandler(contact);
-    // navigate("/");
+    console.log(contact);
+    props.editContactHandler(contact, locate);
+    navigate("/");
   };
+
+  // const EditData = (e) => {
+  //   e.preventDefault();
+  //   if (name === "" || title === "" || location === "") {
+  //     alert("fill all the inputs");
+  //     return;
+  //   }
+  //   const contact = {
+  //     name,
+  //     title,
+  //     location,
+  //   };
+
+  //   console.log(contact)
+
+  //   const editContactHandler = async (contact) => {
+  //     console.log(contact)
+  //     const response = await api.put(`/user/${locate.state.data.id}`, contact);
+  //     console.log(response);
+  //   };
+  //   // //
+  //   editContactHandler(contact)
+
+  //   // props.editContactHandler(contact);
+  //   // navigate("/");
+  // };
   return (
     <div className="ui main">
       <h2>Add contact</h2>
@@ -81,7 +94,9 @@ const EditContact = (props) => {
             onChange={(e) => setLocation(e.target.value)}
           />
         </div>
-        <button className="ui button blue" type="submit">Update</button>
+        <button className="ui button blue" type="submit">
+          Update
+        </button>
       </form>
     </div>
   );

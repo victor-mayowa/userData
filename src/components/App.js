@@ -20,17 +20,26 @@ const App = () => {
     return response.data.data.data;
   };
 
+  //for adding contacts   POSTING
   const addContactHandler = async (contact) => {
-    const response = await api.post("/user", contact);
+    console.log(contact)
+    const response = await api.post("/users", contact);
     setContacts([...contacts, response.data.data.data]);
   };
 
-  /// for editing an item
-  // const editContactHandler = async (contact) => {
-  //   // console.log(contact)
-  //   const response = await api.put(`/user/${contact.id}`, contact);
-  //   console.log(response);
-  // };
+
+
+
+  
+//for editing the item
+  const editContactHandler = async (contact, locate) => {
+    console.log(contact)
+    const response = await api.put(`/user/${locate.state.data.id}`, contact);
+    console.log(response);
+    setContacts(contacts.map((contact)=>{
+      return contact.id === locate.state.data.id ? {...response.data.data.data} : contact
+    }))
+  };
 
   /// for deleting an item
   const removeContact = async (id) => {
@@ -79,7 +88,7 @@ const App = () => {
           />
           <Route
             path="/edit"
-            element={<EditContact  />}
+            element={<EditContact  editContactHandler={editContactHandler} />}
           />
         </Routes>
       </Router>
