@@ -19,11 +19,7 @@ const ContactCard = (props) => {
           <div>{location}</div>
         </Link>
       </div>
-      {/* <i 
-        className="trash alternate outline icon"
-        style={{ color: "red" }}
-        onClick={() => onClickHandler(id)}
-      ></i> */}
+      
       <Link to={`/deletePage/${id}`} state={{ id: { id } }}>
         <i
           className="trash alternate outline icon"

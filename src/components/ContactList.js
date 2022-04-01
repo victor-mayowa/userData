@@ -1,22 +1,28 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import ContactCard from "./ContactCard";
+import api from "../api/data";
 
-const ContactList = (props) => {
-  const deleteClickHandler = (id) => {
-    // console.log(id, "contactList");
-    props.getContactId(id);
+const ContactList = ({ contacts, setContacts }) => {
+
+  // Gets the data from API
+  const retrieveData = async () => {
+    const response = await api.get("/users");
+    return response.data.data.data;
   };
 
-  const renderedContactList = props.contacts.map((contact) => {
-    return (
-      <ContactCard
-        contact={contact}
-        onClickHandler={deleteClickHandler}
-        key={contact.id}
-      />
-      
-    );
+  ///this is for getting data from api
+  useEffect(() => {
+    const getAllData = async () => {
+      const allData = await retrieveData();
+      if (allData) setContacts(allData);
+    };
+
+    getAllData();
+  }, [contacts]);
+  
+  const renderedContactList = contacts.map((contact) => {
+    return <ContactCard contact={contact} onClickHandler key={contact.id} />;
   });
 
   return (
