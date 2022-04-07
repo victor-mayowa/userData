@@ -1,0 +1,25 @@
+.item{
+    display:flex;
+    border-bottom:2px solid rgba(207, 207, 207, 0.541);
+    justify-content: space-between;
+    align-items:center;
+}
+.main-content{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+.image{
+    height: 50px;
+    width:50px;
+    margin-right:10px;
+}
+.fa-trash{
+    color:rgba(255, 0, 0, 0.562);
+    font-size:18px;
+}
+.fa-edit{
+    color:rgba(0, 0, 255, 0.562);
+    font-size:18px;
+    margin-left:10px;
+}

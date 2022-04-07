@@ -1,10 +1,10 @@
 //this app uses api to store and gets its data
 import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import "./App.css";
+import "./css/App.css";
 import Header from "./Header";
 import ContactList from "./ContactList";
-import AddContactFunc from "./AddContactFunc";
+import AddContactFunc from "./AddContact";
 import ContactDetail from "./ContactDetail";
 import DeletePage from "./DeletePage";
 import EditContact from "./EditContact";
@@ -13,7 +13,7 @@ const App = () => {
   const [contacts, setContacts] = useState([]);
 
   return (
-    <div className="ui container">
+    <div className="container">
       <Router>
         <Header />
         <Routes>

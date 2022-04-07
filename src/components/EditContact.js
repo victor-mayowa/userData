@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router";
 import api from "../api/data";
+import "./css/AddContact.css";
 // import { Link } from "react-router-dom";
 
 const EditContact = ({contacts, setContacts}) => {
@@ -44,8 +45,11 @@ const EditContact = ({contacts, setContacts}) => {
   };
 
   return (
-    <div className="ui main">
-      <h2>Add contact</h2>
+    <div className="AppContainer">
+      <div className="AddHeader">
+          <h2 className="header_one">Add contact</h2>
+         
+        </div>
       <form className="ui form" onSubmit={editContactHandler}>
         <div className="field">
           <label>Name</label>

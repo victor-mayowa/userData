@@ -1,0 +1,30 @@
+.AppContainer{
+    width:500px;
+    min-width:400px;
+    margin:auto;
+    margin-top:5px;
+}
+
+.flexContainer{
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+    background-color:#2a3035;
+    margin-bottom:10px;
+    padding:10px;
+}
+.header_one{
+    color:white;
+    font-size:20px;
+}
+.add{
+    color:white;
+    background-color:#1678C2;
+    /* background-color:#595c5f; */
+    border:none;
+    outline:none;
+    padding:9px;
+    font-size:13px;
+    cursor:pointer;
+    border-radius:4px;
+}

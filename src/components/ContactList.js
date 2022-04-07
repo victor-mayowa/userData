@@ -2,9 +2,9 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import ContactCard from "./ContactCard";
 import api from "../api/data";
+import "./css/contactList.css";
 
 const ContactList = ({ contacts, setContacts }) => {
-
   // Gets the data from API
   const retrieveData = async () => {
     const response = await api.get("/users");
@@ -17,22 +17,25 @@ const ContactList = ({ contacts, setContacts }) => {
       const allData = await retrieveData();
       if (allData) setContacts(allData);
     };
-
     getAllData();
   }, [contacts]);
-  
+
   const renderedContactList = contacts.map((contact) => {
     return <ContactCard contact={contact} onClickHandler key={contact.id} />;
   });
 
   return (
-    <div className="ui celled list">
-      <h2>
-        Contact List
+    <div className="AppContainer">
+      <div className="flexContainer">
+        <div>
+          <h2 className="header_one">Contact List</h2>
+        </div>
+
         <Link to="./add">
-          <button className="ui button blue right">Add Contact</button>
+          <button className="add">Add Contact</button>
         </Link>
-      </h2>
+      </div>
+
       {renderedContactList}
     </div>
   );

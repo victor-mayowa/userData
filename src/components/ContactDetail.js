@@ -1,31 +1,29 @@
-import React, { useEffect } from "react";
+import React from "react";
 import user from "../images/user.jpg";
-import { Link, useParams, useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import "./css/ContactDetail.css";
 
 const ContactDetail = () => {
-    // const{id, state} = useParams()
-    // console.log(id)
-    // console.log(state)
-   const locate = useLocation()
-//    useEffect(()=>{
-//        console.log(location)
-//    },[])
-console.log(locate)
-const {name,title, location} = locate.state.contact
+  const locate = useLocation();
+
+  console.log(locate);
+  const { name, title, location } = locate.state.contact;
   return (
-    <div className="main">
-      <div className="ui card centered">
-        <div className="image">
-          <img src={user} alt="user" />
+    <div className="mainContainer">
+      <div className="content">
+        <div className="profilePics">
+          <img src={user} alt="user" className="user" />
         </div>
-        <div className="content">
-          <div className="header">{name}</div>
-          <div className="description">{title}</div>
-          <div className="description">{location}</div>
-        </div>
-        <Link to="/">
-          <button>Back to list</button>
+        <div className="text">
+          <div><h4>{name}</h4></div>
+          <div><p>{title}</p></div>
+          <div><p>{location}</p></div>
+
+          <Link to="/">
+          <button className="back">Back to list</button>
         </Link>
+        </div>
+        
       </div>
     </div>
   );

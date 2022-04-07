@@ -1,0 +1,22 @@
+.AppContainer{
+    width:500px;
+    margin:auto;
+    /* border:2px solid blue; */
+    margin-top:5px;
+}
+.AddHeader{ 
+    background-color:#2a3035;
+    padding:10px;
+    margin-bottom:10px;
+}
+.header_one{
+    color:white;
+    font-size:18px;
+}
+.flex{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+
+}

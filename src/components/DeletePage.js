@@ -2,6 +2,7 @@ import React from "react";
 import { useLocation, useNavigate } from "react-router";
 import { Link } from "react-router-dom";
 import api from "../api/data";
+import "./css/DeletePage.css"
 
 const DeletePage = ({ contacts, setContacts }) => {
   const navigate = useNavigate();
@@ -19,14 +20,16 @@ const DeletePage = ({ contacts, setContacts }) => {
   };
 
   return (
-    <div className="ui main">
-      <h4>Are you sure you want to Delete</h4>
-      <button className="ui button green" onClick={() => deleteContact(id)}>
-        Yes
-      </button>
-      <Link to="/">
-        <button className="ui button red">No</button>
-      </Link>
+    <div className="flexCont">
+      <div className="ui main cont">
+        <h4>Are you sure you want to Delete</h4>
+        <button className="ui button green" onClick={() => deleteContact(id)}>
+          Yes
+        </button>
+        <Link to="/">
+          <button className="ui button red">No</button>
+        </Link>
+      </div>
     </div>
   );
 };
