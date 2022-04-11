@@ -4,6 +4,18 @@ import ContactCard from "./ContactCard";
 import api from "../api/data";
 import "./css/contactList.css";
 
+import ClipLoader from "react-spinners/ClipLoader";
+import { css } from "@emotion/react";
+
+const override = css`
+  display: block;
+  margin: 100px auto;
+  /* border-color: black; */
+  color:black
+  /* text-align:center; */
+`;
+
+
 const ContactList = ({ contacts, setContacts }) => {
   const [isLoading, setIsLoading] = useState(true)
 
@@ -46,7 +58,7 @@ const ContactList = ({ contacts, setContacts }) => {
         </Link>
       </div>
 
-      {isLoading ? "loading... " : renderedContactList}
+      {isLoading ?   <ClipLoader  css={override} size={70} /> : renderedContactList}
     </div>
   );
 };
