@@ -1,10 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useLocation, useNavigate } from "react-router";
 import { Link } from "react-router-dom";
 import api from "../api/data";
 import "./css/DeletePage.css"
+import StoredContext from "./store/StoredContext";
 
-const DeletePage = ({ contacts, setContacts }) => {
+const DeletePage = () => {
+
+  const storedCtx = useContext(StoredContext)
+  const {contacts, setContacts} = storedCtx
+
+
   const navigate = useNavigate();
   const location = useLocation();
 

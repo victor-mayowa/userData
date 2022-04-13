@@ -1,4 +1,4 @@
-import React, { useEffect, useState} from "react";
+import React, { useEffect, useState, useContext} from "react";
 import { Link } from "react-router-dom";
 import ContactCard from "./ContactCard";
 import api from "../api/data";
@@ -6,17 +6,22 @@ import "./css/contactList.css";
 
 import ClipLoader from "react-spinners/ClipLoader";
 import { css } from "@emotion/react";
+import StoredContext from "./store/StoredContext";
 
 const override = css`
   display: block;
   margin: 100px auto;
-  /* border-color: black; */
   color:black
-  /* text-align:center; */
 `;
 
 
-const ContactList = ({ contacts, setContacts }) => {
+const ContactList = () => {
+
+  const storedCtx = useContext(StoredContext)
+
+  const {contacts, setContacts} = storedCtx
+
+
   const [isLoading, setIsLoading] = useState(true)
 
   // Gets the data from API

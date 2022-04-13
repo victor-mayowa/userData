@@ -1,10 +1,15 @@
-import React, { useState } from "react";
+import React, { useState,useContext } from "react";
 import { useLocation, useNavigate } from "react-router";
 import api from "../api/data";
 import "./css/AddContact.css";
+import StoredContext from "./store/StoredContext";
 // import { Link } from "react-router-dom";
 
-const EditContact = ({contacts, setContacts}) => {
+const EditContact = () => {
+
+  const storedCtx = useContext(StoredContext)
+  const {contacts, setContacts} = storedCtx
+
   const locate = useLocation();
 
   const [name, setName] = useState(locate.state.data.name);
